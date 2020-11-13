@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get -q update && \
     apt-get -qy upgrade && \
     apt-get install -qy screen time sudo unzip software-properties-common nano git make automake build-essential pkg-config libevent-dev libncurses5-dev fonts-powerline powerline mariadb-client libmysqlclient-dev unrar p7zip-full mediainfo lame ffmpeg && \
