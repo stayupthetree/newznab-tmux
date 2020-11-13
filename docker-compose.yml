@@ -37,7 +37,7 @@ services:
       - $PWD:/var/www/NNTmux/
     env_file: .env
     ports:
-      - 127.0.0.1:8089:80
+      - 8089:80
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOTPASSWORD}
       TZ: ${APP_TZ}
@@ -57,4 +57,13 @@ services:
       LINES: "`tput lines`"
     command: sudo -E -u notroot php artisan tmux-ui:start
     ports:
-      - 127.0.0.1:12345:12345
+      - 12345:12345
+
+
+networks:
+  nginx_vlan:
+    driver: macvlan
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
