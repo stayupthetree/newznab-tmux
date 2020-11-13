@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
     volumes:
       - $PWD/docker/manticore-data;/var/lib/manticore/data
-      - $PWD/docker/sphinx.conf:/etc/sphinxsearch/sphinx.conf
+      - $PWD/misc/manticoresearch/manticore.conf:/etc/manticoresearch/manticore.conf
   mariadb:
     image: mariadb:10
     restart: unless-stopped
